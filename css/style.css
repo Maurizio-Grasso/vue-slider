@@ -1,8 +1,8 @@
 :root {
-    --height-small: 5rem;
-    --height-medium: 7.5rem;
+    --header-height : 7.5rem;
+    --footer-height : 7.5rem;
+
     --color-primary: rgb(0, 98, 190);
-    --color-secondary: rgb(78, 184, 255);
 }
 
 body {
@@ -36,51 +36,65 @@ L A Y O U T
     border: 1px dashed red; /*  Debug   */
 }
 
-.header ,
-.footer {   
-    height: var(--height-medium);    
-    line-height: var(--height-medium);    
+.header {
+    height: var(--header-height);
+    line-height: var(--header-height);
 }
 
-h1 {
-    line-height: inherit;
+.footer {   
+    height: var(--footer-height);
+    line-height: var(--footer-height);
 }
 
 /* 
 ###########
 S L I D E R  
+I M A G E S
 ###########
 */
 
 .outer-slider {
-    height: calc(100vh - 15rem);
+    height: calc(100vh - var(--header-height) - var(--footer-height) );
     padding-top:5rem;
-    padding-bottom:5rem;
 }
 
 .inner-slider {
-    height: calc(100% - 5rem);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    height: calc(100% - 10rem); /* room for .circles-container */
 }
 
 .images-container {
-    flex : 0 0 calc(100% - 10rem);
+    flex : 0 0 calc(100% - 10rem);  /* room for side arrows */
     height: 100%;
-}
-
-.prev-arrow ,
-.next-arrow {
-    flex: 0 0 var(--height-small);
-    font-size: 5rem;
-    color: var(--color-secondary);
 }
 
 .images-container img {
     max-width: 100%;
     max-height: 100%;
+}
+
+/*
+###########
+S I D E
+A R R W O S
+###########
+*/
+
+.inner-slider .prev-arrow ,
+.inner-slider .next-arrow {
+    flex: 0 0 5rem;
+    font-size: 4rem;
+    color: var(--color-primary);
+    opacity: 0.5;
+}
+.inner-slider .prev-arrow:hover ,
+.inner-slider .next-arrow:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
 /* 
@@ -90,23 +104,41 @@ C I R C L E S
 */
 
 .circles-container {
-    height: var(--height-small);
+    height: 10rem;
     flex: 0 0 100%;
+}
+
+.circles-container ul.inline-list {
+white-space: nowrap;
 }
 
 .single-circle {
     width: 20px;
     height: 20px;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
+    opacity: 0.5;
     border-radius: 50%;
+}
+.single-circle:hover ,
+.single-circle.active {
+    opacity: 1;
+    cursor: pointer;
 }
 
 .single-circle:not(:last-child) {
     margin-right : var(--standard-spacing);
 }
 
-ul.inline-list {
-white-space: nowrap;
+
+/* 
+########
+BITS AND
+PIECES 
+########
+*/
+
+h1 {
+    line-height: inherit;
 }
 
 * {

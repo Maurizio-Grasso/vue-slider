@@ -37,7 +37,7 @@
                         </div>
                         
                         <div class="images-container set-relative">
-                            <img class="align-x-y" :src=" imgPath + imgList[imgCounter]" alt="">
+                            <img class="align-x-y" :src=" imgPath + imgList[imgCounter].src " :alt="imgList[imgCounter].alt">
                         </div>
 
                         <div @click="imgNext" class="next-arrow">

@@ -4,12 +4,51 @@ var app = new Vue ({
     data : {
         imgCounter  : 0 ,
         imgPath     : 'img/',
-        imgList     : ['scot-1.jpg' , 'scot-2.jpg' , 'scot-3.jpg' , 'scot-4.jpg' , 'sic-1.jpg' , 'sic-2.jpg' , 'sic-3.jpg', 'sic-4.jpg' , 'sic-5.jpg' , 'sic-6.jpg' ,'tusc-1.jpg','tusc-2.jpg','tusc-3.jpg','tusc-4.jpg','tusc-5.jpg'] ,
+        imgList     : [
+            {
+                src : 'scot-1.jpg' , 
+                alt : 'Isola di Skye (Scozia)'
+            } ,
 
+            {
+                src : 'scot-2.jpg' , 
+                alt : 'Edimburgo al crepuscolo'
+            } ,
+
+            {
+                src : 'sic-1.jpg' , 
+                alt : 'Etna vista da Taormina'
+            } ,
+
+            {
+                src : 'sic-2.jpg' , 
+                alt : 'Aci Trezza (Sicilia) con i suoi faraglioni'
+            } ,
+
+            {
+                src : 'sic-3.jpg', 
+                alt : 'Isola Bella, Taormina (Sicilia)'
+            } ,
+
+            {
+                src : 'tusc-3.jpg',
+                alt : 'Pontremoli, Toscana'
+            } ,
+
+            {
+                src : 'tusc-4.jpg',
+                alt : 'Panorama di Siena (Toscana)'
+            } ,
+
+            {
+                src : 'tusc-5.jpg' ,
+                alt : 'Duomo di Firenze visto da Piazzale Michelangelo'
+            }
+        ]
     } ,
 
     created : function() {
-        setInterval( () => { this.imgNext()}, 3000);
+        // setInterval( () => { this.imgNext()}, 3000);
     } ,
 
     methods : {
