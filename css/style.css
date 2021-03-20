@@ -1,0 +1,114 @@
+:root {
+    --height-small: 5rem;
+    --height-medium: 7.5rem;
+    --color-primary: rgb(0, 98, 190);
+    --color-secondary: rgb(78, 184, 255);
+}
+
+body {
+    font-size: 18px;
+}
+
+/* 
+###########
+L A Y O U T
+###########
+*/
+.outer-wrapper.flex-wrapper {
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    min-height: 100vh;
+}
+
+.inner-wrapper {
+    max-width: 1300px;
+    margin: auto;
+
+    border: 1px dotted green;    /* debug */
+}
+
+.header ,
+.main ,
+.footer {
+    flex: 0 0 100%;
+
+    border: 1px dashed red; /*  Debug   */
+}
+
+.header ,
+.footer {   
+    height: var(--height-medium);    
+    line-height: var(--height-medium);    
+}
+
+h1 {
+    line-height: inherit;
+}
+
+/* 
+###########
+S L I D E R  
+###########
+*/
+
+.outer-slider {
+    height: calc(100vh - 15rem);
+    padding-top:5rem;
+    padding-bottom:5rem;
+}
+
+.inner-slider {
+    height: calc(100% - 5rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.images-container {
+    flex : 0 0 calc(100% - 10rem);
+    height: 100%;
+}
+
+.prev-arrow ,
+.next-arrow {
+    flex: 0 0 var(--height-small);
+    font-size: 5rem;
+    color: var(--color-secondary);
+}
+
+.images-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 
+#############
+C I R C L E S 
+#############
+*/
+
+.circles-container {
+    height: var(--height-small);
+    flex: 0 0 100%;
+}
+
+.single-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+}
+
+.single-circle:not(:last-child) {
+    margin-right : var(--standard-spacing);
+}
+
+ul.inline-list {
+white-space: nowrap;
+}
+
+* {
+    border: none !important;
+}
