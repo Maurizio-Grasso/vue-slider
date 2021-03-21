@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Font Lato -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
+     
     <!-- VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -15,15 +19,15 @@
     <link rel="stylesheet" href="css/boolstrap.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>VueSlider</title>
+    <title>My Pretty VueSlider</title>
 </head>
 <body>
 
     <div id="app" class="outer-wrapper flex-wrapper text-center">
 
-        <header class="header bg-primary text-white">
+        <header class="header bg-primary text-white set-relative">
             <div class="inner-wrapper">
-                <h1>My Vue Slider</h1>
+                <h1 class="align-x-y">My Vue Slider</h1>
             </div>
         </header>
 
@@ -32,15 +36,16 @@
                 <div class="outer-slider inner-wrapper">
                     
                     <div class="inner-slider">
-                        <div @click="imgPrev" class="prev-arrow">
+                        <div @click="setImage(imgCounter - 1)" class="prev-arrow">
                             <i class="fas fa-chevron-left"></i>
                         </div>
                         
                         <div class="images-container set-relative">
-                            <img class="align-x-y" :src=" imgPath + imgList[imgCounter].src " :alt="imgList[imgCounter].alt">
+                            <img class="align-x-y" :src="imgPath + imgList[imgCounter].src" :alt="imgList[imgCounter].alt">
                         </div>
 
-                        <div @click="imgNext" class="next-arrow">
+                        <div @click="setImage(imgCounter + 1)" class="next-arrow">
+
                             <i class="fas fa-chevron-right"></i>
                         </div>
 
@@ -48,18 +53,23 @@
                         
                         <div class="circles-container set-relative">
                             <ul class="inline-list align-x-y">
-                                <li @click="setImage(index)" v-for="(images , index) in imgList" class="single-circle"></li>
-                                
+
+                                <li v-for="(image , index) in imgList" 
+                                    @click="setImage(index); imgCounter = index" 
+                                    :class="{active:imgCounter == index}" 
+                                    class="single-circle">
+                                </li>                                
+
                             </ul>
-                        </div>  
+                        </div>  <!-- Circles Container END -->
                         
                 </div>   <!-- Outer Slider END -->
 
         </main>
 
-        <footer class="footer bg-primary text-white">
+        <footer class="footer  set-relative bg-primary text-white">
             <div class="inner-wrapper">
-                <span>Made with &hearts; in Boolean</span>
+                <span class="align-x-y">Made with <span class="text-bigger">&hearts;</span> in Boolean</span>
             </div>
         </footer>
 
